@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <!-- <link rel="stylesheet" type="text/css" href="css/fiist.css" /> -->
+
+        <title>Client Page</title>
+ 	</head>   
+    
+    <body>
+        <time></time>
+        <div id="container"><ul id="users"></ul></div>
+        <div><input type="button" id="add" value="Add"/></div>
+        
+    <script src="http://localhost:8000/socket.io/socket.io.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+    
+
+
+    $(document).ready(function() {
+        
+
+        // creating a new websocket
+        var socket = io.connect('http://localhost:8000');
+
+
+        // Send 'add user' message to server
+		$('#add').click(function() {
+			var data = {
+					username:	'x-user',
+					guests:		5,
+					status:		'some status'
+			};
+			
+			socket.emit('add user', data);
+		});
+
+		// Send 'delete user' message to server
+		// Delegate for dynamically generated delete button
+		$('#users').on('click', '#delete', function () {
+			var data = {
+					ID:			$(this).parent().attr('id')
+			};
+			socket.emit('delete user', data);
+		});
+
+        // Receive 'populate' message from server. Fill #users <ul>
+        socket.on('populate', function (data) {
+			var out = "";
+        	$.each(data, function(index, user) {
+    		    out += "<li id='" + user.ID + "'>" + user.ID + " " + user.username + " guests: " + user.guests +
+		    	" status: " + user.status +
+		    	" <input type='button' id='delete' value='Delete'/>" +
+		    	"</li>";
+           	});
+           	$('#users').html(out);
+           	$('time').html('Last Update: ' + data.time);
+           
+        });
+
+    });
+        
+
+    </script>
+    </body>
+</html>

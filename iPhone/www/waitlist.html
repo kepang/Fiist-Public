@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<!--
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements.  See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership.  The ASF licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License.  You may obtain a copy of the License at
+ 
+ http://www.apache.org/licenses/LICENSE-2.0
+ 
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied.  See the License for the
+ specific language governing permissions and limitations
+ under the License.
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/fiist.css" />
+        <script type="text/javascript" charset="utf-8" src="cordova-2.4.0.js"></script>
+        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script>
+            
+            // add something here
+            
+            </script>
+        <title>Main Page</title>
+    </head>
+    <body>
+        <div id="waitlist">
+            <div id="navBar">
+                <div class="waitlist_title titleText">
+                    <div id="backArrow">
+                        <a href=""><img src="img/btn_back.png" /></a>
+                    </div>
+                    The Keg Steakhouse
+                </div>
+            </div>
+            <div class="currentMonth">
+                April 2013
+            </div>
+            <table class="row">
+                <tr>
+                    <td class="date">
+                        <script>
+                            var currentTime = new Date()
+                            var month = currentTime.getMonth() + 1
+                            var day = currentTime.getDate()
+                            var year = currentTime.getFullYear()
+                            document.write(day + "/" + month + "/" + year)
+                        </script>
+                    </td>
+                    <td class="date">
+                        <script>
+                            var currentTime = new Date()
+                            var month = currentTime.getMonth() + 1
+                            var day = currentTime.getDate() + 1
+                            var year = currentTime.getFullYear()
+                            document.write(day + "/" + month + "/" + year)
+                        </script>
+                    </td>
+                    <td class="date">
+                        <script>
+                            var currentTime = new Date()
+                            var month = currentTime.getMonth() + 1
+                            var day = currentTime.getDate() + 2
+                            var year = currentTime.getFullYear()
+                            document.write(day + "/" + month + "/" + year)
+                        </script>
+                    </td>
+                    <td class="date">
+                        <script>
+                            var currentTime = new Date()
+                            var month = currentTime.getMonth() + 1
+                            var day = currentTime.getDate() + 3
+                            var year = currentTime.getFullYear()
+                            document.write(day + "/" + month + "/" + year)
+                        </script>
+                    </td>
+                    <td class="date">
+                        <script>
+                            var currentTime = new Date()
+                            var month = currentTime.getMonth() + 1
+                            var day = currentTime.getDate() + 4
+                            var year = currentTime.getFullYear()
+                            document.write(day + "/" + month + "/" + year)
+                        </script>
+                    </td>
+                </tr>
+            </table>
+            <table class="row waitlist_header">
+                <tr>
+                    <td style="width: 15%;">
+                    </td>
+                    <td style="width: 10%;">
+                        Guests
+                    </td>
+                    <td style="width: 45%;">
+                        Name
+                    </td>
+                    <td style="width: 15%;">
+                        Types
+                    </td>
+                    <td style="width: 15%;">
+                        Status
+                    </td>
+                </tr>
+            </table>
+            <table class="row waitlist_item">
+                <tr>
+                    <td style="width: 15%;">
+                        <img src="img/logo.png" width="85" height="85">
+                    </td>
+                    <td style="width: 10%;">
+                        6
+                    </td>
+                    <td style="width: 45%;">
+                        Sagy Dada
+                    </td>
+                    <td style="width: 15%;">
+                        Types
+                    </td>
+                    <td style="width: 15%;">
+                        Ready
+                    </td>
+                </tr>
+            </table>
+            <table class="row waitlist_item">
+                <tr>
+                    <td style="width: 15%;">
+                        <img src="img/logo.png" width="85" height="85">
+                    </td>
+                    <td style="width: 10%;">
+                        2
+                    </td>
+                    <td style="width: 45%;">
+                        Steven Wang
+                    </td>
+                    <td style="width: 15%;">
+                        Types
+                    </td>
+                    <td style="width: 15%;">
+                        Waiting
+                    </td>
+                </tr>
+            </table>
+            <button style="align:center;">Click to Add</button>
+        </div>
+        
+    </body>
+</html>

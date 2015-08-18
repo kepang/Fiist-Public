@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <!--
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        -->
+        <link href='http://fonts.googleapis.com/css?family=Lato:300,400|Quicksand:300,400' rel='stylesheet' type='text/css'>
+        
+        <link rel="stylesheet" type="text/css" href="css/fiist.css" />
+        <script type="text/javascript" charset="utf-8" src="cordova-2.4.0.js"></script>
+        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script src="js/addToWaitlist.js"></script>
+        <script>
+            // placeholder
+            
+        </script>
+    <title>Main Page</title>
+    </head>
+    <body>
+        <div id="wrapper">
+        <div class="navBar">
+        <div class="waitlist_title titleText">
+	        <div id="backArrow">
+        	<a href=""><img src="img/btn_back.png" /></a>        
+			</div>
+            The Keg Steakhouse
+        </div>
+        </div>
+        <div class="clear"></div>
+        
+        <div class="waittime_div">
+        <div class="waittime_text titleText">AVERAGE WAIT TIME FOR 2 GUESTS:</div>
+        <div class="waittime_text titleText"><span class="waittime_num">7</span> <span class="waittime_min">mins</span></div>
+        </div>
+        <div class="restaurantShortcut"><img id="theKeg" src="img/thekeg.jpg"/></div>
+        
+        <div class="ReservationBasicLeft">
+        <div class="ReservationBasicLeftCell">GUESTS</div>
+        <div class="ReservationBasicLeftCell">ACCOUNT</div>
+        <div class="ReservationBasicLeftCell">DATE</div>
+        <div class="ReservationBasicLeftCell">NOTES</div>
+        </div>
+        <div class="ReservationBasicRight">
+        <div class="ReservationBasicRightCell"></div>
+        <div id="resGuests" class="ReservationBasicRightCell"></div>
+        <div id="resDate" class="ReservationBasicRightCell"></div>
+        <div id="resNotes" class="ReservationBasicRightCell"><input type="text"/></div>
+        </div>
+        <div class="clear"></div>
+        <div class="waitlist_subtitle">Contact</div>
+        <div class="clear"></div>
+        <div id="sbutton" class="Waitlist_Submit">Big Submit Button Goes Here</div>
+            <div><a onclick="gomap()">map</a> <a href="test.html">test</a> <a href="dojo.html">dojo</a> <a href="mysqlclient.html">socket io client</a> <a href="home.html">Main Home</a> <a href="restaurant.html">Restaurant</a></div>
+        </div>
+        <!--
+        <script type="text/javascript" src="cordova-2.4.0.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+        !-->
+    </body>
+</html>

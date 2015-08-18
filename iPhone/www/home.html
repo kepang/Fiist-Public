@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<!--
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements.  See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership.  The ASF licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License.  You may obtain a copy of the License at
+ 
+ http://www.apache.org/licenses/LICENSE-2.0
+ 
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied.  See the License for the
+ specific language governing permissions and limitations
+ under the License.
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <link href='http://fonts.googleapis.com/css?family=Lato:300,400|Quicksand:300,400' rel='stylesheet' type='text/css'>        
+		<link rel="stylesheet" type="text/css" href="css/fiist.css" />
+        <script type="text/javascript" charset="utf-8" src="cordova-2.4.0.js"></script>
+        <script src="js/jquery-1.9.1.min.js"></script>
+        <script type="text/javascript" src="js/angular.min.js"></script>
+        <script src="js/dojo-1.8.3/dojo/dojo.js" data-dojo-config="async:true, parseOnLoad:true"></script>
+        <script type="text/javascript">
+            // Load the widget parser and mobile base
+            require(["dijit/registry", "dojox/mobile/parser", "dojox/mobile/deviceTheme", "dojox/mobile/compat", "dojox/mobile",
+                     "dojox/mobile/ViewController",
+                     "dojox/mobile/View",
+                     "dojox/mobile/GridLayout",
+                     "dojox/mobile/Pane",
+                     "dojox/mobile/Button",
+                     "dojox/mobile/TabBar",
+                     "dojox/mobile/ScrollableView",
+                     "dojox/mobile/TextBox"],
+                    function(registry, parser, deviceTheme, compat, mobile, ViewController) {
+                        var vc = ViewController.getInstance();
+                        onBtn1Clicked = function(e){
+                            // the external view is loaded under the "container" view.
+                            vc.openExternalView({
+                                url:"restaurant.html",
+                                transition:"slide"
+                            }, registry.byId("container").containerNode);
+                        };
+                    });
+            
+        </script>
+        <script type="text/javascript"
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAk36yebsYqK0D89J1EUOgsJvc1ujn4VCI&sensor=false">
+        </script>
+        <script type="text/javascript" src="https://google-maps-utility-library-v3.googlecode.com/svn/trunk/geolocationmarker/src/geolocationmarker-compiled.js"></script>
+        <script type="text/javascript" src="js/urls.js"></script>
+        <script type="text/javascript" src="js/restaurantMap.js"></script>
+        <title>Home</title>
+    </head>
+    <body>
+        
+        <div id="home" data-dojo-type="dojox.mobile.View">
+            <h1 data-dojo-type="dojox.mobile.Heading">Fiist</h1>
+			
+			<div class="profile_menu"></div>
+			<div class="menu_container">
+				<div class="menu_pane">
+					<div class="menu_frame">
+						<div class="menu_picture"></div>
+					</div>
+					<p class="menu_name">GEORGINA D.</p>
+					<div class="orangehrule"></div>
+					<div class="menu_item">
+						<p class="menu_text">Notifications</p>
+						<div class="orange_orb">3</div>						
+					</div>
+					<div class="menu_item feedback">
+						<p class="menu_text">Feedback Forms</p>
+						<div class="orange_orb">1</div>						
+					</div>
+					<div class="menu_item menus">
+						<p class="menu_text">Explore Menus</p>					
+					</div>
+					<div class="menu_item settings">
+						<p class="menu_text">Settings</p>		
+					</div>
+					<div class="menu_item invite">
+						<p class="menu_text">Invite Friends</p>					
+					</div>
+					
+					<div id="logout" class="logoutbutton">SIGN OUT</div>
+				</div>				
+			</div>
+			
+			
+            <div id="tabBar" dojoType="dojox.mobile.ScrollableView">
+                
+                
+                <!-- Find Restaurant Tab -->
+                <div id="findRestaurant" dojoType="dojox.mobile.View" selected="true">
+                    <div class="searchBar">
+                        <p class="search_title">Check In Now.</p>
+                        <form>
+                            <input data-dojo-type="dojox.mobile.TextBox" class="search_input" placeHolder="Restaurants, Cusines, Bars..."></input>
+                        </form>
+                    </div>
+                    <div id="map" class="map_container small"></div>
+                    <div dojoType="dojox.mobile.Container" ng-controller="NearbyRestaurantCtrl">
+                        <h2 data-dojo-type="dojox.mobile.EdgeToEdgeCategory">NEARBY RESTAURANTS</h2>
+                        <ul id="nearbyRestaurantList" data-dojo-type="dojox.mobile.EdgeToEdgeList">
+			</ul>
+                    </div>
+                </div>
+                
+                
+                
+                <!-- Waitlist Tab -->
+                <div id="waitlist" dojoType="dojox.mobile.View">
+                    <div dojoType="dojox.mobile.Container" class="searchBar small">
+                        <form>
+                            <input data-dojo-type="dojox.mobile.TextBox" class="search_input" placeHolder="Restaurants, Cusines, Bars..."></input>
+                        </form>						
+                    </div>
+					<div class="container">
+							<div class="datedivider">Now</div>
+							<div class="nullcell waitlist">
+								<div class="waitlist_picture"></div>
+								<div class="waitlist_date">
+									<p class="waitlist_week">WED</p>
+									<p class="waitlist_month">APRIL</p>
+									<p class="waitlist_month">21</p>
+								</div>
+								<div class="vrule"></div>
+								<div class="waitlist_text">
+									<p class="waitlist_title">MVP Wings</p>
+									<p class="waitlist_message">Dining with <span class="waitlist_num">5</span> friends</p>
+								</div>
+								<div class="status_circle active">
+									<p class="status_text"><span>xx</span> mins</p>
+								</div>
+							</div>
+							<div class="datedivider">Yesterday</div>
+							<div class="nullcell waitlist">
+								<div class="waitlist_picture two"></div>
+								<div class="waitlist_date">
+									<p class="waitlist_week">WED</p>
+									<p class="waitlist_month">APRIL</p>
+									<p class="waitlist_month">21</p>
+								</div>
+								<div class="vrule"></div>
+								<div class="waitlist_text">
+									<p class="waitlist_title">Noodle Guru</p>
+									<p class="waitlist_message">Dining with <span class="waitlist_num">5</span> friends</p>
+								</div>
+								<div class="status_circle">
+									<p class="status_text"></p>
+								</div>
+							</div>
+							<div class="datedivider">Last Week</div>
+							<div class="nullcell waitlist">
+								<div class="waitlist_picture three"></div>
+								<div class="waitlist_date">
+									<p class="waitlist_week">WED</p>
+									<p class="waitlist_month">APRIL</p>
+									<p class="waitlist_month">21</p>
+								</div>
+								<div class="vrule"></div>
+								<div class="waitlist_text">
+									<p class="waitlist_title">Fusion Core</p>
+									<p class="waitlist_message">Dining with <span class="waitlist_num">5</span> friends</p>
+								</div>
+								<div class="status_circle">
+									<p class="status_text"></p>
+								</div>
+							</div>
+							<div class="nullcell waitlist">
+								<div class="waitlist_picture four"></div>
+								<div class="waitlist_date">
+									<p class="waitlist_week">WED</p>
+									<p class="waitlist_month">APRIL</p>
+									<p class="waitlist_month">21</p>
+								</div>
+								<div class="vrule"></div>
+								<div class="waitlist_text">
+									<p class="waitlist_title">The Bistro</p>
+									<p class="waitlist_message">Dining with <span class="waitlist_num">5</span> friends</p>
+								</div>
+								<div class="status_circle">
+									<p class="status_text"></p>
+								</div>
+							</div>
+							<div class="datedivider">2 Weeks Ago</div>
+							<div class="nullcell waitlist">
+								<div class="waitlist_picture five"></div>
+								<div class="waitlist_date">
+									<p class="waitlist_week">WED</p>
+									<p class="waitlist_month">APRIL</p>
+									<p class="waitlist_month">21</p>
+								</div>
+								<div class="vrule"></div>
+								<div class="waitlist_text">
+									<p class="waitlist_title">Lisa's Desserts</p>
+									<p class="waitlist_message">Dining with <span class="waitlist_num">5</span> friends</p>
+								</div>
+								<div class="status_circle">
+									<p class="status_text"></p>
+								</div>
+							</div>
+						</div>
+                    <!--
+                    <div dojoType="dojox.mobile.Container">
+                        <ul data-dojo-type="dojox.mobile.EdgeToEdgeList">
+                          <li data-dojo-type="dojox.mobile.ListItem">The Keg Steak House</li>
+                        </ul>
+                    </div> -->
+                    <!--
+                    <div ng-controller="NearbyRestaurantCtrl">
+                        <ul ng-repeat="business in businesses">
+                            <li>{{business.name}}</li>
+                        </ul>
+                    </div>-->
+                </div>
+                <ul id="demoTabBar" data-dojo-type="dojox.mobile.TabBar" single="true" fixed="bottom">
+                    <li data-dojo-type="dojox.mobile.TabBarButton" moveTo="findRestaurant" icon1="img/dgreymag.png" icon2="img/whitemag.png" selected="true">FIND RESTAURANTS</li>
+                    <li data-dojo-type="dojox.mobile.TabBarButton" moveTo="waitlist" icon1="img/waitlist.png" icon2="img/waitlistwhite.png">MY WAITLIST</li>
+                </ul>
+            </div>
+        </div>
+        <div id="container" data-dojo-type="dojox.mobile.View">
+        </div>
+    </body>
+    <script>
+		$(document).ready(function(){
+			$(".profile_menu").delay(500).fadeIn("slow", function(){
+				$(".profile_menu, .menu_container").click(function(){
+					testState();
+				});
+				$(".menu_pane").click(function(event){
+					event.stopPropagation();
+				});			
+			});			
+		});
+		
+		function testState(){
+			if($(".menu_container").is(":hidden")){
+					$(".menu_container").show(400);
+				}else{
+					$(".menu_container").fadeOut();
+				}
+		}
+    </script>
+</html>

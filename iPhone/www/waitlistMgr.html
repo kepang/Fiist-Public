@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!--
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements.  See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership.  The ASF licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License.  You may obtain a copy of the License at
+ 
+ http://www.apache.org/licenses/LICENSE-2.0
+ 
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied.  See the License for the
+ specific language governing permissions and limitations
+ under the License.
+ -->
+<html class="iphone_theme dj_landscape mobile dj_chrome dj_phone">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        
+
+        <!-- <link href='http://fonts.googleapis.com/css?family=Lato:300,400|Quicksand:300,400' rel='stylesheet' type='text/css'> -->
+        <link rel="stylesheet" type="text/css" href="css/fiisttest.css" />
+        <script type="text/javascript" charset="utf-8" src="cordova-2.4.0.js"></script>
+        <script src="js/jquery-1.9.1.min.js"></script>
+        <script src="http://fiistnodejs.herokuapp.com/socket.io/socket.io.js"></script>
+        <script src="js/dojo-1.8.3/dojo/dojo.js" data-dojo-config="async:true, parseOnLoad:true"></script>
+        <script src="js/waitlistMgr.js"></script>
+        <script src="js/urls.js"></script>
+
+        <script>
+            require(["dijit/registry", "dojox/mobile/parser", "dojox/mobile/deviceTheme", "dojox/mobile/compat", "dojox/mobile",
+                     "dojox/mobile/ViewController",
+                     "dojox/mobile/View",
+                     "dojox/mobile/GridLayout",
+                     "dojox/mobile/Pane",
+                     "dojox/mobile/Button",
+                     "dojox/mobile/TabBar",
+                     "dojox/mobile/ScrollableView",
+                     "dojox/mobile/TextBox"],
+                    function(registry, parser, deviceTheme, compat, mobile, ViewController) {
+                    var vc = ViewController.getInstance();
+                    onBtn1Clicked = function(e){
+                    // the external view is loaded under the "container" view.
+                    vc.openExternalView({
+                                        url:"restaurant.html",
+                                        transition:"slide"
+                                        }, registry.byId("container").containerNode);
+                    };
+                    });
+        </script>
+        <title>Restaurant Page</title>
+    </head>
+    <body>
+        <div id="container">
+            <table id="diners">
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+        
+
+
+
+    </body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />                
+        
+        <link href='http://fonts.googleapis.com/css?family=Lato:300,400|Quicksand:300,400' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css" href="css/fiisttwo.css" />
+	
+        <script src="http://ajax.googleapis.com/ajax/libs/dojo/1.8.3/dojo/dojo.js" data-dojo-config="async:true"></script>
+        <script src="js/jquery-1.9.1.min.js"></script>
+		<script src="js/rotate.js"></script>
+		<script src="js/cordova-2.4.0.js"></script>        
+        <script src="js/addToWaitlist.js"></script>
+		
+        <script>
+            // Load the widget parser and mobile base
+            require(["dojox/mobile/parser", "dojox/mobile/deviceTheme", "dojox/mobile/compat", "dojox/mobile",
+                     "dojox/mobile/View",
+					 "dijit/registry",
+                     "dojox/mobile/GridLayout",
+                     "dojox/mobile/Pane",
+					 "dojox/mobile/ScrollableView",
+					 "dojox/mobile/SpinWheel",
+                     "dojox/mobile/Button"],
+                    function(parser, deviceTheme) {
+                        
+						// Parse the page for widgets!
+						parser.parse();
+						
+                    });
+        </script>
+		<title>AddToWaitlistPage</title>
+    </head>
+	
+    <body>
+		<div id="add" data-dojo-type="dojox.mobile.View">
+			<h1 data-dojo-type="dojox.mobile.Heading" data-dojo-props="back:'<', moveTo:'', fixed:'top'" class="header">Restaurant Name</h1>
+			<div id="addv" data-dojo-type="dojox.mobile.ScrollableView">
+				<div class="waittime">
+					<p class="waittime_num">XX</p>
+					<p class="waittime_min">mins</p>
+					<p class="waittime_message">Average wait time for X guests.</p>
+				</div>
+				<div class="container">
+					<div class="cell numguests">
+						<div class="cellicon"></div>
+						<div class="celltitle">Number of guests</div>
+						<div id="numguests" data-dojo-type="dojox.mobile.SpinWheel">
+							<div id="slot" data-dojo-type="dojox.mobile.SpinWheelSlot" labelFrom="1" labelTo="20" style="width:40px;"></div>
+						</div>
+					</div>
+					<div class="cell people">
+						<div class="cellicon people"></div>
+						<div class="celltitle">People</div>
+						<div class="cellinteraction forwardarrow"></div>
+					</div>
+					<div class="cell sendnote">
+						<div class="cellicon sendnote"></div>
+						<div class="celltitle">Send notifications</div>
+						<div class="cellinteraction mblSwArcShape2" data-dojo-type="dojox.mobile.Switch" value="on"></div>
+					</div>
+					<button class="bluebutton">Add to waitlist</button>
+					<div class="cell notes">
+						<div class="cellicon notes"></div>
+						<textarea class="notes" placeholder="Notes"></textarea>
+					</div>
+				</div>
+			</div>
+			<div id="waitingdialog">
+				<p class="dialogtext">Adding to waitlist..</p>
+				<div id="waitindicator"></div>
+				<div id="closebutton">Cancel</div>
+			</div>
+		</div>
+		<script>
+			$(document).ready(function(){
+				$(".bluebutton").click(function(){
+					if($("#waitingdialog").is(":hidden")){
+						$("#waitingdialog").fadeIn();
+						var angle = 0;
+						var rotatetime = setInterval(function(){
+							angle+=3;
+							$("#waitindicator").rotate(angle);
+						},50);
+						
+						/*var changePage = setTimeout(function(){
+							clearInterval(rotatetime);
+							clearTimeout(changePage);
+							window.location.replace("restaurant.html");							
+						},3000);*/
+						
+						var canceltime = setTimeout(function(){
+							$("#waitindicator").fadeOut(function(){$("#closebutton").fadeIn();});
+							clearInterval(rotatetime);
+							clearTimeout(canceltime);
+						},60000);
+						
+						$("#closebutton").click(function(){
+							$("#waitingdialog").fadeOut(function(){
+								$("#closebutton").fadeOut();
+								$("#waitindicator").fadeIn();
+							});
+						});
+						
+					}else{
+						return false;
+					}
+				});
+			});
+		</script>
+    </body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />                
+        
+        <link href='http://fonts.googleapis.com/css?family=Lato:300,400|Quicksand:300,400' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css" href="css/fiisttwo.css" />
+	
+        <script src="http://ajax.googleapis.com/ajax/libs/dojo/1.8.3/dojo/dojo.js" data-dojo-config="async:true"></script>
+        <script src="js/jquery-1.9.1.min.js"></script>
+		<script src="js/rotate.js"></script>
+		<script src="js/cordova-2.4.0.js"></script>        
+        <script src="js/dojo.js"></script>
+		
+        <script>
+            // Load the widget parser and mobile base
+            require(["dojox/mobile/parser", "dojox/mobile/deviceTheme", "dojox/mobile/compat", "dojox/mobile",
+                     "dojox/mobile/View",
+					 "dijit/registry",
+                     "dojox/mobile/GridLayout",
+                     "dojox/mobile/Pane",
+					 "dojox/mobile/ScrollableView",
+                     "dojox/mobile/Button"],
+                    function(parser, deviceTheme) {
+
+						// Parse the page for widgets!
+						parser.parse();
+                    });
+        </script>
+		<title>AddToWaitlistPage</title>
+    </head>
+	
+    <body>
+		<div id="confirm" data-dojo-type="dojox.mobile.View">
+			<h1 data-dojo-type="dojox.mobile.Heading" data-dojo-props="back:'<', href:'#', fixed:'top'" class="header">Restaurant Name</h1>
+			<div id="confrimv" data-dojo-type="dojox.mobile.ScrollableView">
+				<div class="container green">
+					<div class="checkmark"></div>
+					<p class="confirm_title">TABLE CONFIRMED.</p>
+					<p class="confirm_message">The host has confirmed your seats.</br>You may proceed to the host</br>for further seating instructions.</p>
+					<div class="greenhrule"></div>
+					<p class="guest_num"><span class="large_num">X</span> guests</p>
+					<p class="guest_name">Georgina D.</p>
+					<div data-dojo-type="dojox.mobile.ListItem" data-dojo-props="moveTo:'experience', transition: 'slide'" class="rating_container">
+						<p class="rating_message">RATE YOUR EXPERIENCE</p>
+						<div class="stars"></div>
+					</div>					
+				</div>
+			</div>
+		</div>
+		<div id="experience" data-dojo-type="dojox.mobile.View">
+			<h1 data-dojo-type="dojox.mobile.Heading" data-dojo-props="back:'<', moveTo:'confirm', fixed:'top'" class="header">Restaurant Name</h1>
+			<div id="experiencev" data-dojo-type="dojox.mobile.ScrollableView">
+				<div class="rating_container large">
+					<p class="experience_title">THANKS FOR DINING WITH US</p>
+					<div class="greenhrule"></div>
+					<p class="rating_message">RATE YOUR EXPERIENCE</p>
+					<div class="stars">
+						<div class="fullstar left"></div>
+						<div class="fullstar right"></div>
+						<div class="fullstar left"></div>
+						<div class="fullstar right"></div>
+						<div class="fullstar left"></div>
+						<div class="fullstar right"></div>
+						<div class="fullstar left"></div>
+						<div class="fullstar right"></div>
+						<div class="fullstar left"></div>
+						<div class="fullstar right"></div>
+					</div>
+					<div class="greenhrule"></div>
+					<p class="rating_message">FEEDBACK</p>
+					<textarea class="rating hideable" placeholder="(optional)"></textarea>
+					<button class="bluebutton yellow hideable">Submit</button>
+					<p class="rating_message hidden">Thanks for your feedback!</p>
+				</div>
+			</div>
+		</div>
+
+		<script>
+			$(document).ready(function(){
+				$(".fullstar").click(function(){
+					$(this).nextAll().removeClass("clicked");
+					$(this).prevAll().andSelf().addClass("clicked");
+				});				
+				$(".bluebutton.yellow").click(function(){
+					$(".hideable").fadeOut(function(){
+						$(".rating_message.hidden").fadeIn("slow");
+					});					
+				});
+			});
+		</script>
+    </body>
+</html>

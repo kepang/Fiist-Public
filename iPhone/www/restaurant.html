@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<!--
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements.  See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership.  The ASF licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License.  You may obtain a copy of the License at
+ 
+ http://www.apache.org/licenses/LICENSE-2.0
+ 
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied.  See the License for the
+ specific language governing permissions and limitations
+ under the License.
+ -->
+<html class="iphone_theme dj_landscape mobile dj_chrome dj_phone">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        
+
+        <link href='http://fonts.googleapis.com/css?family=Lato:300,400|Quicksand:300,400' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="css/fiisttwo.css" />
+        <!-- <link href="//ajax.googleapis.com/ajax/libs/dojo/1.8.3/dojox/mobile/themes/iphone/iphone.css"
+            rel="stylesheet"></link> -->
+        <script type="text/javascript" charset="utf-8" src="cordova-2.4.0.js"></script>
+        <script src="js/jquery-1.9.1.min.js"></script>
+        <!-- <script src="http://localhost:8000/socket.io/socket.io.js"></script> -->
+        <script src="http://fiistnodejs.herokuapp.com/socket.io/socket.io.js"></script>
+        <script src="js/dojo-1.8.3/dojo/dojo.js" data-dojo-config="async:true, parseOnLoad:true"></script>
+        <script src="js/restaurant.js"></script>
+        <script src="js/urls.js"></script>
+
+        <script>
+            require(["dijit/registry", "dojox/mobile/parser", "dojox/mobile/deviceTheme", "dojox/mobile",
+                     "dojox/mobile/ViewController",
+                     "dojox/mobile/View",
+					 "dojox/mobile/compat",
+                     "dojox/mobile/GridLayout",
+                     "dojox/mobile/Pane",
+                     "dojox/mobile/Button",
+                     "dojox/mobile/TabBar",
+                     "dojox/mobile/ScrollableView",
+                     "dojox/mobile/TextBox"],
+                    function(registry, parser, deviceTheme, compat, mobile, ViewController) {
+                    });
+        </script>
+        <title>Restaurant Page</title>
+    </head>
+    <body>
+
+
+        <div id="restaurant" data-dojo-type="dojox.mobile.View">
+            <h1 id="header" data-dojo-type="dojox.mobile.Heading" data-dojo-props="back:'<', href:'#', transition:'slide'" class="header">Restaurant Name</h1>
+            <div id="tabBar" data-dojo-type="dojox.mobile.ScrollableView">
+                
+                <!-- Waitlist Tab -->
+                <div id="waitlist" data-dojo-type="dojox.mobile.View" selected="true">
+					<div class="waitlistpicture">
+						<p class="picturetitle">Picture Caption</p>
+						<p class="picturemenu">View Menu</p>
+					</div>	
+					<div class="container">
+						<button id="waitlistbutton" onclick="waitlistReady()" class="bluebutton orange">Add To Waitlist</button>
+						<button onclick="viewStatus()" class="bluebutton orange status">View Status</button>
+						<div class="nullcell small"><p class="containertext"><span id="num_waiting">-</span> diners waiting in line.</p></div>
+                        
+                        <!-- List of diners in waitlist begins inside <span></span> -->
+                        <span id="diners">
+                            <div class="nullcell">
+                            </div>
+                        </span>
+                        
+					</div>
+				   <!-- <input type="button" id="add" value="Add"/> -->
+                </div>
+                
+                <!-- Profile Tab -->
+                <div id="profile" data-dojo-type="dojox.mobile.View">
+                    <div class="waitlistpicture">
+						<p class="picturetitle">Picture Caption</p>
+						<p class="picturemenu">View Menu</p>
+					</div>
+					<div class="container">	
+                        <div class="nullcell large">
+							<p class="restaurantorangetitle">Restaurant Name</p>
+							<p class="restaurantsubtitle">Cuisine</p>
+							<p class="restaurantsubtitle">Atmosphere</p>
+						</div>
+                        <div class="nullcell large">
+							<p class="restaurantorangetitle">Website</p>
+							<div class="cellinteraction forwardarrow large"></div>
+							<p class="restaurantsubtitle large">www.website.com</p>
+						</div>
+                        <div class="nullcell notes profile">
+							<p class="restaurantorangetitle">Profile</p>
+							<p class="restaurantsubtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+						</div>
+                    </div>              
+                </div>
+                
+                <!-- Map Tab -->
+                <div id="map" data-dojo-type="dojox.mobile.View">
+                    <div class="map_container"></div>
+					<div class="container">
+						<div class="nullcell">
+							<button class="bluebutton map">Open In Maps</button>
+						</div>
+					</div>
+                </div>				
+                
+                <!-- Tab Bar -->
+                <ul id="demoTabBar" data-dojo-type="dojox.mobile.TabBar" single="true" fixed="top">
+                    <li data-dojo-type="dojox.mobile.TabBarButton" moveTo="waitlist" selected="true">Waitlist</li>
+                    <li data-dojo-type="dojox.mobile.TabBarButton" moveTo="profile" >Profile</li>
+                    <li data-dojo-type="dojox.mobile.TabBarButton" moveTo="map" >Map</li>
+                </ul> 
+
+            </div>                                                                                                               
+        </div>
+		<script>
+			function waitlistReady(){
+				$(".bluebutton.orange").hide();
+				$(".bluebutton.orange.status").fadeIn("slow");			
+			}
+			
+			function viewStatus(){
+				window.location.href ="bookingsEntry.html";	
+			}			
+        </script>
+    </body>
+</html>

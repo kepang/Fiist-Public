@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<!--
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements.  See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership.  The ASF licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License.  You may obtain a copy of the License at
+ 
+ http://www.apache.org/licenses/LICENSE-2.0
+ 
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied.  See the License for the
+ specific language governing permissions and limitations
+ under the License.
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <link href='http://fonts.googleapis.com/css?family=Lato:300,400|Quicksand:300,400' rel='stylesheet' type='text/css'>        
+        <link rel="stylesheet" type="text/css" href="css/fiist.css" />
+        <link href="//ajax.googleapis.com/ajax/libs/dojo/1.8.3/dojox/mobile/themes/iphone/iphone.css"
+            rel="stylesheet"></link>
+        <link rel="stylesheet" type="text/css" href="css/fiist.css" />
+        <script type="text/javascript" charset="utf-8" src="cordova-2.4.0.js"></script>
+        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+        <script src="http://ajax.googleapis.com/ajax/libs/dojo/1.8.3/dojo/dojo.js"
+            data-dojo-config="async:true">
+        </script>
+        <script src="js/dojo.js"></script>
+        <script>
+            // Load the widget parser and mobile base
+            require(["dojox/mobile/parser", "dojox/mobile/deviceTheme", "dojox/mobile/compat", "dojox/mobile",
+                     "dojox/mobile/View",
+                     "dojox/mobile/GridLayout",
+                     "dojox/mobile/Pane",
+                     "dojox/mobile/Button"],
+                    function(parser, deviceTheme) {
+                    
+                    // Parse the page for widgets!
+                    parser.parse();
+                    }
+                    );
+        </script>
+        <title>Dojo Page</title>
+    </head>
+    <body>
+
+        <div id="general" data-dojo-type="dojox.mobile.View">
+            <h1 data-dojo-type="dojox.mobile.Heading" data-dojo-props="back:'Settings', moveTo:'settings'" class="mblHeading">
+                General
+            </h1>
+            
+            <div class="waittime_div">
+                <div class="waittime_text titleText">AVERAGE WAIT TIME FOR 2 GUESTS:</div>
+                <div class="waittime_text titleText"><span class="waittime_num">7</span> <span class="waittime_min">mins</span></div>
+            </div>
+            <div class="restaurantShortcut"><img id="theKeg" src="img/thekeg.jpg"/></div>
+            
+            <div data-dojo-type="dojox.mobile.GridLayout" data-dojo-props='cols:2'>
+                <div data-dojo-type="dojox.mobile.Pane" class="ReservationBasicLeft">
+                    <div data-dojo-type="dojox.mobile.ListItem" class="ReservationBasicLeftCell">GUESTS</div>
+                    <div data-dojo-type="dojox.mobile.ListItem" class="ReservationBasicLeftCell">ACCOUNT</div>
+                    <div data-dojo-type="dojox.mobile.ListItem" class="ReservationBasicLeftCell">DATE</div>
+                    <div data-dojo-type="dojox.mobile.ListItem" class="ReservationBasicLeftCell">NOTES</div>
+                </div>
+                <div data-dojo-type="dojox.mobile.Pane" class="ReservationBasicRight">
+                    <li id="resGuests" data-dojo-type="dojox.mobile.ListItem" data-dojo-props="moveTo: 'about', transition:'slide'" class="ReservationBasicRightCell"></li>
+                    <li id="resDate" data-dojo-type="dojox.mobile.ListItem" data-dojo-props="moveTo: 'about', transition:'slide'" class="ReservationBasicRightCell"></li>
+                    <li data-dojo-type="dojox.mobile.ListItem" data-dojo-props="moveTo: 'about', transition:'slide'" class="ReservationBasicRightCell"></li>
+                    <li data-dojo-type="dojox.mobile.ListItem" data-dojo-props="moveTo: 'about', transition:'slide'" class="ReservationBasicRightCell"></li>
+                    <li data-dojo-type="dojox.mobile.ListItem" data-dojo-props="moveTo: 'about', transition:'slide'" class="ReservationBasicRightCell">...</li>
+                </div>
+            </div>
+            <div dojoType="dojox.mobile.View">
+                <p>Contact</p>
+                <button dojoType="dojox.mobile.Button">Submit</button>
+            </div>
+        </div>
+        
+        <div id="about" data-dojo-type="dojox.mobile.View">
+            <h1 data-dojo-type="dojox.mobile.Heading" data-dojo-props="back:'General', moveTo:'general'">
+                About
+            </h1>
+            <h2 data-dojo-type="dojox.mobile.RoundRectCategory">Generic Mobile Device</h2>
+            <ul data-dojo-type="dojox.mobile.RoundRectList">
+                <li data-dojo-type="dojox.mobile.ListItem" data-dojo-props="rightText:'AcmePhone'">
+                    Network
+                </li>
+                <li data-dojo-type="dojox.mobile.ListItem" data-dojo-props="rightText:'AcmePhone'">
+                    Line
+                </li>
+                <li data-dojo-type="dojox.mobile.ListItem" data-dojo-props="rightText:'1024'">
+                    Songs
+                </li>
+                <li data-dojo-type="dojox.mobile.ListItem" data-dojo-props="rightText:'10'">
+                    Videos
+                </li>
+                <li data-dojo-type="dojox.mobile.ListItem" data-dojo-props="rightText:'96'">
+                    Photos
+                </li>
+                <li data-dojo-type="dojox.mobile.ListItem" data-dojo-props="rightText:'2'">
+                    Applications
+                </li>
+                <li data-dojo-type="dojox.mobile.ListItem" data-dojo-props="rightText:'29.3 BG'">
+                    Capacity
+                </li>
+                <li data-dojo-type="dojox.mobile.ListItem" data-dojo-props="rightText:'28.0 BG'">
+                    Available
+                </li>
+                <li data-dojo-type="dojox.mobile.ListItem" data-dojo-props="rightText:'3.0 (7A341)'">
+                    Version
+                </li>
+            </ul>
+        </div>
+        
+        <div id="settings" data-dojo-type="dojox.mobile.View">
+            <a href="index.html"> Home </a>
+        </div>
+
+        
+    </body>
+</html>
