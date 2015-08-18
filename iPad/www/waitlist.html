@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">      
+        
+        <link href='http://fonts.googleapis.com/css?family=Lato:300,400|Quicksand:300,400' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css" href="css/fiistwaitlist.css" />
+	
+        <script src="js/jquery-1.9.1.min.js"></script>
+		<script src="js/jquery-ui-1.10.3.custom.min.js"></script>
+		<script src="js/jquery.ui.touch-punch.min.js"></script>
+		
+		<title>Waitlist</title>
+    </head>
+	
+    <body>
+		<div class="fluidcontainer">			
+			<div class="headbar">
+				<div class="menu"></div>
+				<div class="tabs">
+					<div class="tab" id="cancelledbutton"></div>
+					<div class="tab selectedtab" id="waitlistbutton"></div>
+					<div class="tab" id="completebutton"></div>
+				</div>
+			</div>
+			<div class="datebar">
+				<p class="datetext">May 20th, 2013</p>
+			</div>
+			<div class="container">
+				<div class="entry">
+					<div class="entry_position">25</div>
+					<div class="entry_picture"></div>
+					<div class="entry_guests">
+						<p class="entry_guest_number">5</p>
+						<p class="entry_guest_title">GUESTS</p>
+					</div>					
+					<div class="entry_name">Sail Z.</div>
+					<div class="entry_status">Confirmed</div>
+				</div>
+			</div>
+			<div id="addToWaitlist">Tap here for new entry</div>
+			<div id="profile_popup">
+				<div id="profile_close"></div>
+				<div class="profile_name_bar">Sail Z.</div>				
+				<div class="profile_tabs">
+					<div class="profile_tab profile_selected_tab" id="1">Status</div>
+					<div class="profile_tab" id="2">Profile</div>
+					<div class="profile_tab" id="3">Feedbacks</div>
+				</div>
+				<div class="profile_content">
+					<div class="profile_tab_content status 1">
+						<p class="status_message">THIS TABLE WILL BE READY AT</p>
+						<p class="status_time large">7:52</p>
+						<p class="status_time">pm</p>
+						<p class="status_name">Sail Z. (3)</p>
+						<div class="status_counter">4 mins ago</div>
+						</br>
+						<div class="status_guest">GUEST LIST</div>						
+					</div>
+					<div class="profile_tab_content client 2">
+						<div class="client_picture"></div>
+						<div class="client_info">
+							<p class="client_name">Sail Z.</p>
+							<div class="client_local">Vancouver BC, Canada</div>
+							<div class="client_hrule"></div>
+							<div class="client_phone">(604) 266-8588</div>
+							<div class="client_email">
+								<div class="client_email_text">obscureobviousness@gmail.com</div>
+							</div>
+						</div>
+						<div class="client_visit">
+							<p class="client_visit_number">3</p>
+							<p class="client_visit_suffix">rd</p>							
+						</div>
+						<div class="client_visit_message">
+							<p class="client_visit_text">VISIT TO</p>
+							<p class="client_visit_restaurant">FRUITS OF THE SALAD</p>
+						</div>
+						<div class="client_notes"></div>
+					</div>
+					<div class="profile_tab_content feedbacks 3">
+						<div class="feedback_container">
+							<div class="feedback">
+								<p class="feedback_date">Feb.28th, 2013</p>
+								<div class="feedback_stars"></div>
+								<div class="feedback_message">Food was amazing. Friendly staff. I had a great time tonight.</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="profile_notes">NOTES</div>
+				<div class="profile_table_ready">TABLE READY</div>
+			</div>
+		</div>
+		<script>
+			$(document).ready(function(){
+				$(".entry").dblclick(function(){
+					$("#profile_popup").fadeIn();
+				});				
+				$("#profile_close").click(function(){
+					$("#profile_popup").fadeOut();
+				});	
+				
+				$(".entry").draggable({
+					revert: true,
+					axis: "x"
+				});
+
+				$("#1").addClass("profile_selected_tab");
+				$(".1").fadeIn();
+				var lasttab = 1;
+				
+				$(".profile_tab").click(function(){
+					var tabid = $(this).attr("id");
+					if(tabid != lasttab){
+						$("#" + lasttab).removeClass("profile_selected_tab");		
+						$(this).addClass("profile_selected_tab");		
+						$("." + lasttab).fadeOut("fast",function(){
+							$("." + tabid).fadeIn("fast");
+							lasttab = tabid;
+						});
+					}
+				});	
+				
+			});	
+		</script>
+    </body>
+</html>

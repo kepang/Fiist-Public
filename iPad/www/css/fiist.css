@@ -1,0 +1,516 @@
+html,body,div,h1,h2,h3,p,ul,li,a,img{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	height: 100% !important;
+	background-color: #deded9 !important;
+	font-family: 'Lato', sans-serif !important;
+	font-weight: 400 !important;
+	color: #fff !important;
+	font-size: 16px !important;
+}
+
+/* Get rid of the annoying Apple stuff */
+.mblToolBarButtonBody,.mblToolBarButtonLeftArrow,.mblToolBarButtonHasLeftArrow,.mblToolBarButtonArrow,.header{
+	font-family: 'Quicksand', sans-serif !important;
+	font-weight: 400 !important;
+	border: none !important;
+	background: none !important;
+	background-color: #222 !important;
+	box-shadow: none !important;
+}
+
+
+/* Header */
+.header{
+	height: 40px;
+	font-size: 16px;
+	letter-spacing: -1px;
+	line-height: 40px;
+	color: #deded9;
+}
+
+.mblToolBarButtonBody{
+	font-size: 20px;
+	line-height: 30px;	
+}
+
+#demoTabBar{
+	height: 60px !important;
+}
+
+.mblTabBarButton{
+	height: 60px !important;
+}
+
+.mblTabBarButtonIconArea{
+	margin-top: 5px !important;
+}
+
+.mblTabBarButtonLabel{
+	line-height: 20px !important;
+	font-size: 12px !important;
+}
+
+/* Wait time div */
+.waittime{
+	height: 200px;
+	width: 100%;
+	background-color: #de582a;
+	text-align: center;
+	float: left;
+	font-weight: 100;
+}
+
+p.waittime_num {
+	margin-top: 30px;
+	font-size: 80px;
+	line-height: 70px;
+}
+
+p.waittime_min {
+	font-size: 20px;
+}
+
+p.waittime_message{
+	margin-top: 20px;
+	font-weight: 500;
+	color: #933a1d;
+}
+
+p.waittime_small{
+	margin-top: 5px;
+	font-size: 12px;
+}
+
+/* container */
+.container{
+	top: 240px;
+	height: 100%;
+	width: 100%;
+	float: left;
+	text-align: center;
+}
+
+.cellinteraction{
+	float: right;
+	margin-right: 30px;
+	margin-top: 15px;	
+}
+
+.nullcell{
+	height: 75px;
+	width: 100%;
+	border: solid 1px #deded9;
+	background-color: #fafafd;
+}
+
+/* home */
+.searchBar {
+	height: 85px;
+	width: 100%;
+	text-align: center;
+    background-color: #deded9;
+	-webkit-box-shadow: 0 2px 1px rgba(0,0,0,.18);
+	-moz-box-shadow: 0 2px 1px rgba(0,0,0,.18);
+	box-shadow: 0 2px 1px rgba(0,0,0,.18);
+}
+
+.searchBar.small{
+	height: 50px;
+}
+
+p.search_title{
+	margin-top: 15px;
+	color: #000;
+	text-shadow: 0px 2px 3px rgba(255,255,255,0.5);
+	font-size: 24px;
+}
+
+input.search_input{
+	margin-top: 10px;
+	height: 30px;
+	width: 280px;
+	border: none;
+	padding-left: 40px;
+	background: url(../img/orangemag.png) left no-repeat;
+	background-color: #fff;
+}
+
+.map_container.small{
+	height: 280px;
+}
+
+h2{
+	font-weight: 100 !important;
+}
+
+.map_container{
+	width: 100%;
+	height: 400px;
+	float: left;
+}
+
+.nullcell.restaurant{
+	height: 80px;
+	background-color: #f5f5ee;
+}
+
+p.restaurantcelltitle{
+	margin-top: 15px;
+	margin-left: 110px;
+	font-size: 20px;
+	color: #000;
+	text-align: left;
+	font-weight: 500;
+}
+
+p.restaurantcelladdress{
+	margin-left: 110px;
+	font-size: 12px;
+	color: #999;
+	text-align: left;
+	line-height: 11px;
+}
+
+.cellinteraction.forwardarrow{
+	height: 12.5px;
+	width: 12.5px;
+	margin-top: 20px;
+	background: url(../img/btn_forward.png) right no-repeat;
+	background-size: contain;
+}
+
+.cellinteraction.forwardarrow.restaurant{
+	margin-top: 0;
+}
+
+/* waitlist */
+.datedivider{
+	height: 20px;
+	width: 100%;
+	float: left;
+	background-color: #333;
+	color: #999;
+	text-align: left;
+	padding-left: 15px;
+	font-weight: bold;
+}
+
+.nullcell.waitlist{
+	float: left;
+	height: 70px;
+	background-color: #f5f5ee;
+}
+
+.waitlist_picture{
+	float: left;
+	margin-top: 5px;
+	margin-left: 5px;
+	height: 60px;
+	width: 60px;
+	line-height: 35px;
+	text-align: center;
+	background: url(../img/foodone.png) center no-repeat;
+	background-size: contain;
+	background-color: #999;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.waitlist_picture.two{
+	background: url(../img/foodtwo.png) center no-repeat;
+	background-size: contain;
+}
+
+.waitlist_picture.three{
+	background: url(../img/foodthree.png) center no-repeat;
+	background-size: contain;
+}
+
+.waitlist_picture.four{
+	background: url(../img/foodfour.png) center no-repeat;
+	background-size: contain;
+}
+
+.waitlist_picture.five{
+	background: url(../img/foodfive.png) center no-repeat;
+	background-size: contain;
+}
+
+.waitlist_date{
+	float: left;
+	margin-left: 5px;
+	margin-top: 10px;
+	width: 50px;
+	height: 50px;
+	color: #000;	
+}
+
+p.waitlist_week{
+	font-weight: normal;
+	font-size: 12px;
+}
+
+p.waitlist_month{
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.vrule{
+	float: left;
+	margin-left: 10px;
+	margin-top: 10px;
+	width: 2px;
+	height: 50px;
+	background-color: #deded9;
+}
+
+.waitlist_text{
+	float: left;
+	margin-top: 10px;
+	margin-left: 10px;
+	width: 120px;
+	height: 60px;
+}
+
+p.waitlist_title{
+	color: #000;
+	font-weight: 500;
+	font-size: 16px;
+	margin-top: 5px;
+}
+
+p.waitlist_message{
+	color: #999;
+	font-size: 12px;
+}
+
+span.waitlist_num{
+	color: #000;
+	font-weight: bold;
+}
+
+.status_circle{
+	float: left;
+	margin-top: 20px;
+	margin-left: 10px;
+	width: 40px;
+	height: 30px;
+	background: url(../img/checkmarkgreen.png) center no-repeat;
+	background-size: contain;
+	text-align: center;
+}
+
+.status_circle.active{
+	margin-top: 10px;
+	background: url(../img/orangeclock.png) center no-repeat;
+	background-size: contain;
+}
+
+.status_text{
+	font-size: 12px;
+	color: #000;
+	line-height: 80px;
+}
+
+
+div#registration {
+    padding: 10px;
+    margin: 0 auto;
+}
+ 
+#registration form ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#registration form input {
+    width: 100%;
+    -moz-box-sizing: border-box; /* Firefox */
+    -webkit-box-sizing: border-box; /* Safari */
+    box-sizing: border-box;   
+}
+
+#registration form input[type="text"], #registration form input[type="password"] {
+    font-size: 1.2em;
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 4px 4px 4px 4px;
+    padding: 5px 5px 5px 5px;
+}
+
+#registration #logo
+{
+    font-size: 2em;
+    width: 200px;
+}
+
+.blue_btn {
+    display: block;
+    background: -webkit-gradient(linear, left top, left bottom, from(#4488D3), to(#3771C1));
+    color: white;
+    text-shadow: 0px -2px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, 0.5) inset;
+    border-radius: 5px 5px 5px 5px;
+    text-align: center;
+    padding: 8px 0 8px 0;
+    font-size: 1.1em;
+    cursor: pointer;
+}
+
+.blue_btn:active {
+    box-shadow: 0 0 8px 0 rgba(0,0,0,0.5) inset;
+}
+
+#registration form .submit {
+    margin-top: 10px;
+}
+
+#registration form .action {
+    margin-top: 20px;
+}
+
+#registration form a {
+    text-decoration: none;
+}
+
+/* settings */
+.profile_menu{
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	width: 25px;
+	height: 25px;
+	background: url(../img/menu.png) center no-repeat;
+	background-size: contain;
+	z-index: 2;
+	display: none;
+}
+
+.menu_container{
+	display: none;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	z-index: 3;
+}
+
+.menu_pane{
+	height: 100%;
+	width: 250px;
+	background-color: #222;
+	text-align: center;
+}
+
+.menu_frame{
+	margin-top: 30px;
+	height: 150px;
+	width: 150px;
+	display: inline-block;
+	background-color: #de582a;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	text-align: center;
+}
+
+.menu_picture{
+	margin-top: 5px;
+	height: 140px;
+	width: 140px;
+	background: url(../img/avatar.png) center no-repeat;
+	background-size: cover;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	display: inline-block;
+}
+
+p.menu_name{
+	margin-top: 15px;
+	font-size: 21px;
+	font-weight: 300;
+}
+
+.orangehrule{
+	margin-top: 15px;
+	background-color: #de582a;
+	height: 1px;
+	width: 75px;
+	display: inline-block;
+}
+
+.menu_item{
+	margin-top: 5px;
+	margin-left: 25px;
+	width: 200px;
+	height: 30px;
+	float: left;
+	text-align: left;
+	line-height: 30px;
+	background: url(../img/speech.png) left no-repeat;
+	background-size: 20px auto;
+}
+
+.menu_item.feedback{
+	background: url(../img/pencil.png) left no-repeat;
+	background-size: auto 20px;
+}
+
+.menu_item.menus{
+	background: url(../img/whitemag.png) left no-repeat;
+	background-size: 20px auto;
+}
+
+.menu_item.settings{
+	background: url(../img/gear.png) left no-repeat;
+	background-size: 20px auto;
+}
+
+.menu_item.invite{
+	background: url(../img/invite.png) left no-repeat;
+	background-size: 20px auto;
+}
+
+p.menu_text{
+	font-size: 18px;
+	font-weight: 300;
+	margin-left: 40px;
+	float: left;
+}
+
+.orange_orb{
+	background-color: #de582a;
+	height: 25px;
+	width: 25px;
+	border-radius: 50%;
+	float: right;
+	margin-top: 5px;
+	text-align: center;
+	line-height: 25px;
+}
+
+.logoutbutton{
+	font-family: 'Quicksand', sans-serif;
+	line-height: 40px;
+	height: 40px;
+	width: 200px;
+	display: inline-block;
+	margin-top: 45px;
+	text-align: center;
+	text-decoration: none;
+	color: #fff;
+	font-size: 18px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	background-color: #333;
+	-webkit-box-shadow: 0 2px 1px rgba(0,0,0,.18), inset 0 1px rgba(255,255,255,.24);
+	-moz-box-shadow: 0 2px 1px rgba(0,0,0,.18), inset 0 1px rgba(255,255,255,.24);
+	box-shadow: 0 2px 1px rgba(0,0,0,.18), inset 0 1px rgba(255,255,255,.24);
+	border: solid 1px #222;	
+}
